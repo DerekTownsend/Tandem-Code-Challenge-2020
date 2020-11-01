@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tandem Quiz</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <main>
+      <div class="quiz" id="quiz">
+        <h1>Hello Welcome To The Tandem Quiz</h1>
+        <form class="question-form" id="question-form">
+          <p>#</p>
+            <input type="radio" id="answer1"
+            name="question" value="#" required>
+            <label for="answer1">#</label>
+            <br>
+            <input type="radio" id="answer2"
+            name="question" value="#">
+            <label for="answer2">#</label>
+            <br>
+            <input type="radio" id="answer3"
+            name="question" value="#">
+            <label for="answer3">#</label>
+            <br>
+            <input type="radio" id="answer4"
+            name="question" value="#">
+            <label for="answer4">#</label>
+            <br>
+          <input type="submit" value="Next Question">
+        </form>
+      </div>
+
+      <div class="end-screen" id="endScreen">
+        <h2>You Finished <br> Your Score is: <span><span></h2>
+      </div>
+    </main>
+    <script type="text/javascript" src="./scripts/quiz-form.js"></script>
+  </body>
+</html>
