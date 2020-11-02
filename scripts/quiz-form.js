@@ -61,26 +61,31 @@ function displayQuestionsForm(){
   questionForm.addEventListener("submit", submitForm)
 }
 
+function isCorrect(form) {
+  let userAnswer;
+  for(input of form){
+    if (input.checked) {
+      userAnswer = input.value
+    }
+  }
+  if (userAnswer === questions[currentQuestion].correct) {
+    userScore++
+    // Make these not alerts
+    alert(`Correct the answer was ${questions[currentQuestion].correct}`)
+  } else {
+    alert(`Incorrect the answer was ${questions[currentQuestion].correct}`)
+  }
+}
+
 function submitForm(e) {
   e.preventDefault()
   if (isNext) {
-    let userAnswer;
-    for(input of e.target){
-      if (input.checked) {
-        userAnswer = input.value
-      }
-    }
-    if (userAnswer === questions[currentQuestion].correct) {
-      userScore++
-      // Make these not alerts
-      alert(`Correct the answer was ${questions[currentQuestion].correct}`)
-    } else {
-      alert(`Incorrect the answer was ${questions[currentQuestion].correct}`)
-    }
+    isCorrect(e.target)
     currentQuestion++
     displayQuestionsForm()
     questionForm.reset()
   } else {
+    isCorrect(e.target)
     document.querySelector("#quiz").style.display = "none";
     document.querySelector("#endScreen").style.display = "block";
     document.querySelector("#endScreen span").innerHTML = userScore;
