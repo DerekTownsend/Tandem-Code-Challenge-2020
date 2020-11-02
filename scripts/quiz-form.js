@@ -2,12 +2,11 @@
 // const QUESTIONS_URL = "../Apprentice_TandemFor400_Data.json";
 // if hosting with internet
 const QUESTIONS_URL = "https://derektownsend.github.io/Tandem-Code-Challenge-2020/Apprentice_TandemFor400_Data.json";
-let currentQuestion = 0;
-let userResponses = {};
-let userScore = 0
-let isNext = true;
-let questions = [];
 const questionForm = document.querySelector("#question-form");
+let currentQuestion
+let userScore
+let isNext
+let questions
 
 // Fisher–Yates Shuffle
 function shuffle(array) {
@@ -71,9 +70,9 @@ function isCorrect(form) {
   if (userAnswer === questions[currentQuestion].correct) {
     userScore++
     // Make these not alerts
-    alert(`Correct the answer was ${questions[currentQuestion].correct}`)
+    alert(`Correct the answer was "${questions[currentQuestion].correct}"`)
   } else {
-    alert(`Incorrect the answer was ${questions[currentQuestion].correct}`)
+    alert(`Incorrect the answer was "${questions[currentQuestion].correct}"`)
   }
 }
 
@@ -89,11 +88,33 @@ function submitForm(e) {
     document.querySelector("#quiz").style.display = "none";
     document.querySelector("#endScreen").style.display = "block";
     document.querySelector("#endScreen span").innerHTML = userScore;
+    questionForm.reset()
   }
 }
 
+function startQuiz(e) {
+  document.querySelector(".landing").style.display = "none";
+  document.querySelector("#quiz").style.display = "block";
+}
+
+function playAgain(e) {
+  document.querySelector(".end-screen").style.display = "none";
+  document.querySelector("#quiz").style.display = "block";
+  runApp()
+}
+
+document.querySelector(".landing").addEventListener("click",startQuiz)
+document.querySelector(".end-screen").addEventListener("click",playAgain)
+
+function intialize() {
+  currentQuestion = 0;
+  userScore = 0
+  isNext = true;
+  questions = [];
+}
 
 function runApp() {
+  intialize()
   getQuestions()
 }
 
