@@ -1,5 +1,5 @@
 // if hosting without internet
-// const QUESTIONS_URL = "../json/Apprentice_TandemFor400_Data.json";
+// const QUESTIONS_URL = "../Apprentice_TandemFor400_Data.json";
 // if hosting with internet
 const QUESTIONS_URL = "https://derektownsend.github.io/Tandem-Code-Challenge-2020/Apprentice_TandemFor400_Data.json";
 let currentQuestion = 0;
