@@ -1,4 +1,7 @@
-const QUESTIONS_URL = "../Apprentice_TandemFor400_Data.json";
+// if hosting without internet
+// const QUESTIONS_URL = "../json/Apprentice_TandemFor400_Data.json";
+// if hosting with internet
+const QUESTIONS_URL = "https://derektownsend.github.io/Tandem-Code-Challenge-2020/Apprentice_TandemFor400_Data.json";
 let currentQuestion = 0;
 let userResponses = {};
 let userScore = 0
@@ -70,9 +73,9 @@ function submitForm(e) {
     if (userAnswer === questions[currentQuestion].correct) {
       userScore++
       // Make these not alerts
-      // alert(`Correct the answer was ${questions[currentQuestion].correct}`)
+      alert(`Correct the answer was ${questions[currentQuestion].correct}`)
     } else {
-      // alert(`Incorrect the answer was ${questions[currentQuestion].correct}`)
+      alert(`Incorrect the answer was ${questions[currentQuestion].correct}`)
     }
     currentQuestion++
     displayQuestionsForm()
